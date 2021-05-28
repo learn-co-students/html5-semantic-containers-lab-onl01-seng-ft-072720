@@ -35,46 +35,46 @@ end
       expect(html_file_contents).to include('</main>'), "No closing </main> tag was found"
     end
 
-    context 'within <main>' do
-      it 'contains three separate <section> elements' do
-        section = parsed_html.search('section')
-        expect(section).to_not be_nil, "No <section> tags were found"
-        expect(section.length).to be >= 3, "Page should contain 3 sets of section tags"
-      end
+    # context 'within <main>' do
+    #   it 'contains three separate <section> elements' do
+    #     section = parsed_html.search('section')
+    #     expect(section).to_not be_nil, "No <section> tags were found"
+    #     expect(section.length).to be >= 3, "Page should contain 3 sets of section tags"
+    #   end
 
-      it 'contains a <figure> tag within the first <section>' do
-        section = parsed_html.search('section')[0]
-        figure = section.children.select {|ch| ch.name == 'figure'}[0]
+    #   it 'contains a <figure> tag within the first <section>' do
+    #     section = parsed_html.search('section')[0]
+    #     figure = section.children.select {|ch| ch.name == 'figure'}[0]
 
-        expect(figure).to_not be_nil, "No <figure> tag found within the first section"
-        expect(html_file_contents).to include('</figure>'), "No closing </figure> tag was found"
-        figcaption = figure.children.select {|ch| ch.name == 'figcaption'}[0]
+    #     expect(figure).to_not be_nil, "No <figure> tag found within the first section"
+    #     expect(html_file_contents).to include('</figure>'), "No closing </figure> tag was found"
+    #     figcaption = figure.children.select {|ch| ch.name == 'figcaption'}[0]
 
-        expect(figcaption).to_not be_nil, "No <figcaption> tag found within the first section"
-        expect(html_file_contents).to include('</figcaption>'), "No closing </figcaption> tag was found"
-      end
+    #     expect(figcaption).to_not be_nil, "No <figcaption> tag found within the first section"
+    #     expect(html_file_contents).to include('</figcaption>'), "No closing </figcaption> tag was found"
+    #   end
 
-      it 'contains an <article> tag within the first <section>' do
-        section = parsed_html.search('section')[0]
-        article = section.children.select {|ch| ch.name == 'article'}[0]
+    #   it 'contains an <article> tag within the first <section>' do
+    #     section = parsed_html.search('section')[0]
+    #     article = section.children.select {|ch| ch.name == 'article'}[0]
 
-        expect(article).to_not be_nil, "No <article> tag found within the first section"
-        expect(html_file_contents).to include('</article>'), "No closing </article> tag was found"
-      end
+    #     expect(article).to_not be_nil, "No <article> tag found within the first section"
+    #     expect(html_file_contents).to include('</article>'), "No closing </article> tag was found"
+    #   end
 
-      it 'contains a <figure> tag within the second <section>' do
-        section = parsed_html.search('section')[1]
-        expect(section).to_not be_nil, "No <section> tags were found"
-        figure = section.children.select {|ch| ch.name == 'figure'}[0]
+    #   it 'contains a <figure> tag within the second <section>' do
+    #     section = parsed_html.search('section')[1]
+    #     expect(section).to_not be_nil, "No <section> tags were found"
+    #     figure = section.children.select {|ch| ch.name == 'figure'}[0]
 
-        expect(figure).to_not be_nil, "No <figure> tag found within the second section"
-        expect(html_file_contents).to include('</figure>'), "No closing </figure> tag was found"
-        figcaption = figure.children.select {|ch| ch.name == 'figcaption'}[0]
+    #     expect(figure).to_not be_nil, "No <figure> tag found within the second section"
+    #     expect(html_file_contents).to include('</figure>'), "No closing </figure> tag was found"
+    #     figcaption = figure.children.select {|ch| ch.name == 'figcaption'}[0]
 
-        expect(figcaption).to_not be_nil, "No <figcaption> tag found within the second section"
-        expect(html_file_contents).to include('</figcaption>'), "No closing </figcaption> tag was found"
-      end
-    end
+    #     expect(figcaption).to_not be_nil, "No <figcaption> tag found within the second section"
+    #     expect(html_file_contents).to include('</figcaption>'), "No closing </figcaption> tag was found"
+    #   end
+    # end
 
     it 'contains a <footer> tag' do
       footer = parsed_html.search('footer')[0]
